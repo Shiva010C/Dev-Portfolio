@@ -1,0 +1,1541 @@
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.projects {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 20px 5vw 20px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  color: #fff;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(35, 65, 120, 0.1),
+      transparent 60%
+    );
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.sectionHeader {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 10px;
+}
+
+.sectionHeader > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.sectionLabel {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.sectionNumber {
+  color: #63eaff;
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 0.15em;
+}
+
+.sectionNumber span {
+    display: block;
+
+    width: 55px;
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            #4eaeff,
+            transparent);
+}
+
+.sectionTag {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.16em;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+
+  text-align: right;
+
+  font-size:
+    clamp(
+      27px,
+      3.5vw,
+      50px
+    );
+
+  line-height: 0.92;
+
+  letter-spacing: -0.05em;
+}
+
+.sectionHeader h2 span {
+  color: #63eaff;
+
+  text-shadow:
+    0 0 18px
+    rgba(
+      99,
+      234,
+      255,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   BELT AREA
+   ========================================================= */
+
+.universe {
+  position: relative;
+
+  width: 100%;
+
+  height: 43vh;
+
+  min-height: 300px;
+
+  max-height: 450px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(
+        50,
+        80,
+        140,
+        0.1
+      ),
+      transparent 70%
+    );
+
+  border:
+    1px solid
+    rgba(
+      120,
+      180,
+      255,
+      0.04
+    );
+}
+
+
+/* =========================================================
+   ENERGY
+   ========================================================= */
+
+.energyLine,
+.energyLineTwo {
+  position: absolute;
+
+  left: 50%;
+
+  width: 82%;
+
+  height: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(
+        80,
+        225,
+        255,
+        0.18
+      ),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+.energyLine {
+  top: 30%;
+}
+
+.energyLineTwo {
+  top: 70%;
+
+  opacity: 0.35;
+}
+
+
+/* =========================================================
+   BELT VIEWPORT
+   ========================================================= */
+
+.beltViewport {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  padding: 45px 0;
+
+  box-sizing: border-box;
+
+  cursor: grab;
+
+  touch-action: pan-y;
+
+  user-select: none;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 7%,
+      black 93%,
+      transparent
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 7%,
+      black 93%,
+      transparent
+    );
+}
+
+.beltViewport:active {
+  cursor: grabbing;
+}
+
+
+/* =========================================================
+   TRACK
+   ========================================================= */
+
+.beltTrack {
+  position: absolute;
+
+  left: 0;
+  top: 45px;
+
+  width: 420vw;
+
+  height:
+    calc(
+      100% - 90px
+    );
+
+  display: flex;
+
+  will-change: transform;
+
+  touch-action: pan-y;
+}
+
+
+/* =========================================================
+   GROUP
+   ========================================================= */
+
+.beltGroup {
+  position: relative;
+
+  flex:
+    0 0
+    140vw;
+
+  width: 140vw;
+
+  height: 100%;
+}
+
+
+/* =========================================================
+   RANDOM ASTEROIDS
+   ========================================================= */
+
+.normalAsteroid {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(
+        255,
+        255,
+        255,
+        0.7
+      ),
+      rgba(
+        140,
+        150,
+        175,
+        0.65
+      )
+      25%,
+      rgba(
+        55,
+        65,
+        85,
+        0.8
+      )
+      60%,
+      #0b101c
+    );
+
+  border:
+    1px solid
+    rgba(
+      170,
+      200,
+      230,
+      0.14
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(
+      100,
+      150,
+      200,
+      0.1
+    );
+
+  pointer-events: none;
+}
+
+.normalAsteroid span {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.4
+    );
+}
+
+.normalAsteroid
+  span:nth-child(1) {
+  width: 23%;
+  height: 20%;
+
+  left: 20%;
+  top: 27%;
+}
+
+.normalAsteroid
+  span:nth-child(2) {
+  width: 17%;
+  height: 16%;
+
+  left: 57%;
+  top: 51%;
+}
+
+.normalAsteroid
+  span:nth-child(3) {
+  width: 12%;
+  height: 12%;
+
+  left: 42%;
+  top: 68%;
+}
+
+
+/* =========================================================
+   PROJECT POSITION
+   ========================================================= */
+
+.projectPosition {
+  position: absolute;
+
+  top: 50%;
+
+  width: 110px;
+  height: 110px;
+
+  transform:
+    translateY(-50%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   PROJECT ASTEROID
+   ========================================================= */
+
+.projectAsteroid {
+  position: relative;
+
+  width:
+    var(--asteroid-size);
+
+  height:
+    var(--asteroid-size);
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   PROJECT ROCK
+   ========================================================= */
+
+.projectRock {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius:
+    45%
+    55%
+    52%
+    48%;
+
+  transform:
+    rotate(-8deg);
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #fff 0%,
+      var(--project-color)
+      15%,
+      color-mix(
+        in srgb,
+        var(--project-color),
+        #111 55%
+      )
+      48%,
+      #080c16 82%
+    );
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--project-color),
+      white 20%
+    );
+
+  box-shadow:
+    0 0 12px
+    color-mix(
+      in srgb,
+      var(--project-color),
+      transparent 50%
+    ),
+    0 0 28px
+    color-mix(
+      in srgb,
+      var(--project-color),
+      transparent 75%
+    );
+
+  overflow: hidden;
+}
+
+.rockHighlight {
+  position: absolute;
+
+  width: 35%;
+  height: 28%;
+
+  top: 12%;
+  left: 18%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+
+  filter:
+    blur(3px);
+}
+
+.rockCraterOne,
+.rockCraterTwo {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+.rockCraterOne {
+  width: 22%;
+  height: 18%;
+
+  left: 58%;
+  top: 34%;
+}
+
+.rockCraterTwo {
+  width: 15%;
+  height: 13%;
+
+  left: 30%;
+  top: 65%;
+}
+
+
+/* =========================================================
+   GLOW
+   ========================================================= */
+
+.projectGlow {
+  position: absolute;
+
+  inset: -18px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      color-mix(
+        in srgb,
+        var(--project-color),
+        transparent 70%
+      ),
+      transparent 70%
+    );
+
+  filter:
+    blur(7px);
+
+  opacity: 0.6;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.activeAsteroid
+  .projectGlow {
+  inset: -32px;
+
+  opacity: 1;
+
+  animation:
+    asteroidPulse
+    2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes asteroidPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.1);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   POINTER
+   ========================================================= */
+
+.projectPointer {
+  position: absolute;
+
+  left: 100%;
+  top: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  transform:
+    translateY(-50%);
+
+  margin-left: 15px;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  z-index: 30;
+}
+
+.pointerLine {
+  width: 30px;
+
+  height: 1px;
+
+  background:
+    var(--project-color);
+
+  box-shadow:
+    0 0 8px
+    var(--project-color);
+}
+
+.projectLabel {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  padding-left: 8px;
+}
+
+.projectLabel small {
+  color:
+    var(--project-color);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.14em;
+}
+
+.projectLabel strong {
+  color: #fff;
+
+  font-size: 12px;
+
+  text-shadow:
+    0 0 10px
+    color-mix(
+      in srgb,
+      var(--project-color),
+      transparent 40%
+    );
+}
+
+
+/* =========================================================
+   DRAG HINT
+   ========================================================= */
+
+.beltHint {
+  position: absolute;
+
+  bottom: 9px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.15em;
+
+  pointer-events: none;
+
+  z-index: 20;
+
+  opacity: 0;
+
+  transition:
+    opacity
+    0.25s;
+}
+
+.beltViewport:hover
+  .beltHint {
+  opacity: 1;
+}
+
+.beltHint span {
+  color: #63eaff;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   BOOK AREA
+   ========================================================= */
+
+.bookArea {
+  position: relative;
+
+  z-index: 8;
+
+  width:
+    min(
+      820px,
+      88vw
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   BOOK GLOW
+   ========================================================= */
+
+.bookGlow {
+  position: absolute;
+
+  left: 50%;
+  bottom: -20px;
+
+  width: 80%;
+  height: 45px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(
+        70,
+        210,
+        255,
+        0.18
+      ),
+      transparent 70%
+    );
+
+  filter:
+    blur(14px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOOK
+   ========================================================= */
+
+.book {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  min-height: 225px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(
+        20,
+        27,
+        43,
+        0.95
+      ),
+      rgba(
+        7,
+        11,
+        21,
+        0.98
+      )
+    );
+
+  border:
+    1px solid
+    rgba(
+      150,
+      195,
+      255,
+      0.12
+    );
+
+  box-shadow:
+    0 18px 55px
+    rgba(
+      0,
+      0,
+      0,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   SPINE
+   ========================================================= */
+
+.bookSpine {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(
+        180,
+        220,
+        255,
+        0.18
+      ),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   BOOK PAGE
+   ========================================================= */
+
+.bookPage {
+  position: relative;
+
+  min-width: 0;
+
+  padding:
+    19px 22px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.pageNumber {
+  position: absolute;
+
+  right: 17px;
+  top: 12px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    );
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 8px;
+}
+
+.projectImageFrame {
+  position: relative;
+
+  width: 100%;
+  height: 180px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background:
+    rgba(
+      4,
+      8,
+      15,
+      0.9
+    );
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--project-color),
+      transparent 72%
+    );
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  opacity: 0.85;
+}
+
+.imagePlaceholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color:
+    var(--project-color);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  pointer-events: none;
+}
+
+.imageScan {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    var(--project-color);
+
+  box-shadow:
+    0 0 10px
+    var(--project-color);
+
+  opacity: 0.4;
+
+  animation:
+    scan 4s
+    linear
+    infinite;
+}
+
+@keyframes scan {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+
+/* =========================================================
+   PAGE TOP
+   ========================================================= */
+
+.pageTop {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.pageContent h3 {
+  margin:
+    0 0
+    8px;
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.pageContent p {
+  max-width: 380px;
+
+  margin:
+    0 0
+    12px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STACK
+   ========================================================= */
+
+.stack {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-bottom: 13px;
+}
+
+.stack span {
+  padding:
+    4px 7px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+
+  border-radius: 4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 6px;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.bookLinks {
+  display: flex;
+
+  gap: 14px;
+}
+
+.bookLinks a {
+  color: #63eaff;
+
+  text-decoration: none;
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.1em;
+}
+
+.bookLinks a:hover {
+  color: #fff;
+
+  text-shadow:
+    0 0 10px
+    #63eaff;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+   ========================================================= */
+
+.bookNavigation {
+  position: absolute;
+
+  right: 20px;
+  bottom: 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  z-index: 30;
+}
+
+.bookNavigation button {
+  padding: 5px 8px;
+
+  border: 1px solid
+    rgba(100, 230, 255, 0.2);
+
+  border-radius: 5px;
+
+  background:
+    rgba(80, 220, 255, 0.04);
+
+  color: #63eaff;
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bookNavigation button:hover {
+  background:
+    rgba(80, 220, 255, 0.12);
+
+  border-color:
+    rgba(100, 230, 255, 0.5);
+
+  box-shadow:
+    0 0 14px
+    rgba(100, 230, 255, 0.15);
+}
+
+.bookNavigation span {
+  color:
+    rgba(255, 255, 255, 0.2);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 6px;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   BOTTOM INFO
+   ========================================================= */
+
+.bottomInfo {
+  width:
+    min(
+      820px,
+      88vw
+    );
+
+  margin:
+    10px auto 0;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.22
+    );
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .projects {
+    padding:
+      70px
+      4vw
+      35px;
+  }
+
+  .universe {
+    height: 41vh;
+
+    min-height: 285px;
+  }
+
+  .projectImageFrame {
+    height: 160px;
+  }
+
+  .book {
+    min-height: 210px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .projects {
+    padding:
+      68px
+      3vw
+      30px;
+  }
+
+  .sectionTag {
+    display: none;
+  }
+
+  .sectionHeader h2 {
+    font-size:
+      clamp(
+        24px,
+        8vw,
+        35px
+      );
+  }
+
+  .universe {
+    height: 37vh;
+
+    min-height: 250px;
+
+    border-radius: 18px;
+  }
+
+  .beltViewport {
+    padding: 35px 0;
+  }
+
+  .beltTrack {
+    top: 35px;
+
+    height:
+      calc(
+        100% - 70px
+      );
+  }
+
+  .projectPointer {
+    margin-left: 8px;
+  }
+
+  .pointerLine {
+    width: 18px;
+  }
+
+  .projectLabel strong {
+    font-size: 9px;
+  }
+
+  .projectLabel small {
+    font-size: 5px;
+  }
+
+  .bookArea {
+    width: 94vw;
+  }
+
+  .book {
+    min-height: 190px;
+  }
+
+  .bookPage {
+    padding: 14px;
+  }
+
+  .projectImageFrame {
+    height: 145px;
+  }
+
+  .pageContent h3 {
+    font-size: 20px;
+  }
+
+  .pageContent p {
+    font-size: 8px;
+  }
+
+   .bookNavigation {
+    right: 12px;
+    bottom: 8px;
+
+    gap: 7px;
+  }
+
+  .bookNavigation span {
+    display: none;
+  }
+
+
+  .bottomInfo {
+    width: 94vw;
+
+    font-size: 6px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .projects {
+    padding:
+      62px
+      3vw
+      25px;
+  }
+
+  .universe {
+    height: 35vh;
+
+    min-height: 230px;
+  }
+
+  .beltViewport {
+    padding: 30px 0;
+  }
+
+  .beltTrack {
+    top: 30px;
+
+    height:
+      calc(
+        100% - 60px
+      );
+  }
+
+  .projectAsteroid {
+    transform:
+      scale(0.88);
+  }
+
+  .projectLabel strong {
+    font-size: 8px;
+  }
+
+  .projectImageFrame {
+    height: 130px;
+  }
+
+  .book {
+    min-height: 175px;
+  }
+
+  .bookPage {
+    padding: 11px;
+  }
+
+  .pageContent h3 {
+    font-size: 17px;
+  }
+
+  .pageContent p {
+    font-size: 7px;
+
+    line-height: 1.35;
+  }
+
+  .stack {
+    margin-bottom: 8px;
+  }
+
+  .stack span {
+    padding: 3px 5px;
+
+    font-size: 5px;
+  }
+
+  .bookLinks {
+    gap: 8px;
+  }
+
+  .bookLinks a {
+    font-size: 6px;
+  }
+
+ .bookNavigation {
+    right: 8px;
+    bottom: 6px;
+  }
+
+  .bookNavigation button {
+    padding: 4px 6px;
+    font-size: 6px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .activeAsteroid
+    .projectGlow,
+  .imageScan {
+    animation: none;
+  }
+}

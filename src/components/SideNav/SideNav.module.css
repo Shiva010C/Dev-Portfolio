@@ -1,0 +1,62 @@
+.sideNav {
+  position: fixed;
+  z-index: 20;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sideNav button {
+  display: grid;
+  grid-template-columns: 30px 1px 55px;
+  gap: 8px;
+
+  align-items: center;
+  text-align: left;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  color: #657080;
+  cursor: pointer;
+
+  font: inherit;
+}
+
+.sideNav button span {
+  font: 16px "DM Mono";
+}
+
+.sideNav button i {
+  width: 1px;
+  height: 28px;
+  background: #39404b;
+}
+
+.sideNav button em {
+  font-style: normal;
+  font-size: 11px;
+}
+
+.sideNav button:hover {
+  color: #cbd0dd;
+}
+
+.sideNav .active {
+  color: #fff;
+}
+
+.sideNav .active i {
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .sideNav {
+    display: none;
+  }
+}

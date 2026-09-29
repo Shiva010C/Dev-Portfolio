@@ -1,0 +1,432 @@
+.hero {
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  /* border-bottom: 1px solid rgba(255, 255, 255, .1); */
+  background: radial-gradient(circle at 78% 45%, rgba(34, 103, 255, .14), transparent 27%), radial-gradient(circle at 65% 35%, rgba(160, 44, 255, .09), transparent 24%), rgba(3, 5, 11, 0.55);
+}
+
+.nebula {
+  position: absolute;
+  width: 900px;
+  height: 600px;
+  right: -100px;
+  top: -40px;
+  z-index: -4;
+  background: radial-gradient(ellipse at 50% 55%, rgba(72, 125, 255, .2), transparent 37%), radial-gradient(ellipse at 70% 35%, rgba(117, 45, 255, .18), transparent 30%);
+  filter: blur(28px);
+
+}
+
+.aniContainer {
+  min-height: 100svh;
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  z-index: 55;
+  overflow: hidden;
+  /* background-color: #2bcaff; */
+}
+
+.rocketHolder {
+  width: min(30vw, 470px);
+  position: absolute;
+  z-index: 51;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -165%);
+  display: flex;
+  justify-content: center;
+  /* background-color: aquamarine; */
+}
+
+.rocket {
+  width: min(12vw, 150px);
+}
+
+.pcHolder {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  /* transform: translate(-50%, -10%); */
+  width: 70vw;
+  height: 400px;
+   z-index: 53;
+  /* background-color: #70a9ff; */
+}
+
+.cloudHolder {
+  width: min(30vw, 470px);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-49%, -292%);
+  display: flex;
+  justify-content: center;
+  z-index: 53;
+  /* background-color: aquamarine; */
+}
+
+.burnCloud {
+
+  width: min(12vw, 150px);
+}
+
+.planet {
+  position: absolute;
+  width: min(80vw, 1020px);
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -26%);
+}
+
+.moonWrapper {
+  position: absolute;
+  z-index: -2;
+
+  width: min(50vw, 540px);
+  aspect-ratio: 1;
+
+  right: 10%;
+  top: 18%;
+}
+
+.moonRoll {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+.moon {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, rgba(25, 35, 68, .86), rgba(2, 6, 16, .93) 60%, rgba(0, 0, 0, .97) 72%);
+  box-shadow: 0 0 28px #75d8ff, 0 0 70px rgba(126, 73, 255, .72), inset 0 0 70px rgba(0, 0, 0, .8);
+}
+
+.moon::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: conic-gradient(from 220deg, #55d7ff, #ad61ff, #ff78c8, #5de0ff, #8e61ff, #55d7ff);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+  filter: drop-shadow(0 0 8px #a25cff) drop-shadow(0 0 15px #2bcaff);
+}
+
+.moonGlow {
+  position: absolute;
+  inset: -55px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(88, 114, 255, .12), transparent 63%);
+}
+
+.profileFrame {
+  position: absolute;
+  inset: 10%;
+  overflow: hidden;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #111a2e, #03050b 70%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, .75);
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* add mountains css here */
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: min(720px, 76%);
+  margin-left: clamp(90px, 11.7vw, 190px);
+  padding-top: clamp(120px, 16vh, 170px);
+}
+
+.eyebrow {
+  font-size: 17px;
+  letter-spacing: .3px;
+  margin-bottom: 8px;
+}
+
+.content h1 {
+  margin: 0;
+  font-size: clamp(45px, 5vw, 70px);
+  line-height: 1;
+  letter-spacing: -3px;
+  font-weight: 800;
+}
+
+.content h1 span {
+  background: linear-gradient(90deg, #e7e8ef 4%, #45a7ff 37%, #be63f4 77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.content h2 {
+  margin: 20px 0 13px;
+  font-size: clamp(16px, 1.7vw, 21px);
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+
+.description {
+  color: #aab0bf;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.actions a {
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 12px;
+  transition: .25s ease;
+}
+
+.primary {
+  color: #111522;
+  background: #f2f3f7;
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(255, 255, 255, .12);
+}
+
+.secondary {
+  color: #e9ecf5;
+  border: 1px solid rgba(160, 165, 200, .38);
+  background: rgba(28, 31, 50, .45);
+}
+
+.secondary:hover {
+  border-color: #70a9ff;
+  transform: translateY(-2px);
+}
+
+.actions span {
+  margin-left: 7px;
+}
+
+.scrollHint {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c5cad7;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.mouse {
+  width: 15px;
+  height: 25px;
+  border: 1px solid #e2e7f4;
+  border-radius: 8px;
+  position: relative;
+}
+
+.mouse i {
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  border-radius: 2px;
+  background: #fff;
+  top: 5px;
+  left: 6px;
+  animation: scrollDot 1.7s infinite;
+}
+
+.quote {
+  position: absolute;
+  z-index: 2;
+  right: 10%;
+  top: 30%;
+  color: #e4e7f0;
+  font-family: "Comic Sans MS", cursive;
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.30;
+  transform: rotate(-7deg);
+  text-shadow: 0 0 12px rgba(130, 160, 255, .18);
+}
+
+.quote svg {
+  width: 120px;
+  display: block;
+  margin-left: 20px;
+}
+
+.quote path {
+  fill: none;
+  stroke: #dfe4ef;
+  stroke-width: 1;
+}
+
+.location {
+  position: absolute;
+  right: 19px;
+  bottom: 19px;
+  z-index: 3;
+  color: #8d95a7;
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: .3px;
+}
+
+.location b {
+  color: #e0e4ed;
+  font-weight: 500;
+}
+
+.location i {
+  color: #86a8ff;
+  margin-left: 12px;
+  font-size: 7px;
+}
+
+@keyframes scrollDot {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: .3
+  }
+
+  50% {
+    transform: translateY(6px);
+    opacity: 1
+  }
+}
+
+@media (max-width:900px) {
+  .moonWrapper {
+    width: 62vw;
+    right: -8%;
+    top: 16%;
+  }
+
+  .moon {
+    opacity: .82
+  }
+
+  .quote {
+    right: 7%;
+    top: 28%
+  }
+
+  .content {
+    margin-left: 70px
+  }
+}
+
+@media (max-width:650px) {
+  /* .hero {
+    min-height: 760px;
+  } */
+
+  .content {
+    width: auto;
+    margin: 0 24px;
+    padding-top: 112px;
+  }
+
+  .content h1 {
+    letter-spacing: -2px;
+    font-size: clamp(40px, 13vw, 57px);
+  }
+
+  .content h2 {
+    letter-spacing: 1.2px;
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .moonWrapper {
+    width: min(82vw, 380px);
+    right: -24%;
+    top: 37%;
+  }
+
+  .moon {
+    opacity: .62;
+  }
+
+  .profileFrame {
+    inset: 9%;
+  }
+
+
+  .quote {
+    top: 27%;
+    right: 8%;
+    font-size: 16px;
+  }
+
+  .quote svg {
+    width: 92px;
+  }
+
+  .mountains {
+    height: 36%;
+  }
+
+  .location {
+    bottom: 12px;
+  }
+}
+
+@media (max-width:390px) {
+  /* .hero {
+    min-height: 730px;
+  } */
+
+  .content {
+    margin: 0 18px;
+  }
+
+  .content h1 {
+    font-size: 39px;
+  }
+
+  .content h2 {
+    font-size: 13px;
+  }
+
+  .quote {
+    top: 28%;
+    font-size: 14px;
+  }
+}
