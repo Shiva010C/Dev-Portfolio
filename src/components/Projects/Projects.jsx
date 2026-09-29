@@ -1383,7 +1383,7 @@ export default function Projects() {
                             styles.sectionTag
                         }
                     >
-                        / PROJECTS
+                        /PROJECTS
                     </span>
                 </div>
 
