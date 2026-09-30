@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "./components/Navbar/Navbar";
 import SideNav from "./components/SideNav/SideNav";
 import Hero from "./components/Hero/Hero";
-// import PlaySection from "./components/PlaySection/PlaySection";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
@@ -17,32 +16,32 @@ export default function App() {
 
 const [introFinished, setIntroFinished] = useState(false);
 
-useEffect(() => {
-  if (introFinished) {
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
+// useEffect(() => {
+//   if (introFinished) {
+//     document.documentElement.style.overflow = "";
+//     document.body.style.overflow = "";
 
-    document.documentElement.style.touchAction = "";
-    document.body.style.touchAction = "";
+//     document.documentElement.style.touchAction = "";
+//     document.body.style.touchAction = "";
 
-    return;
-  }
+//     return;
+//   }
 
-  // Landing animation ke time scroll lock
-  document.documentElement.style.overflow = "hidden";
-  document.body.style.overflow = "hidden";
+//   // Landing animation ke time scroll lock
+//   document.documentElement.style.overflow = "hidden";
+//   document.body.style.overflow = "hidden";
 
-  document.documentElement.style.touchAction = "none";
-  document.body.style.touchAction = "none";
+//   document.documentElement.style.touchAction = "none";
+//   document.body.style.touchAction = "none";
 
-  return () => {
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
+//   return () => {
+//     document.documentElement.style.overflow = "";
+//     document.body.style.overflow = "";
 
-    document.documentElement.style.touchAction = "";
-    document.body.style.touchAction = "";
-  };
-}, [introFinished]);
+//     document.documentElement.style.touchAction = "";
+//     document.body.style.touchAction = "";
+//   };
+// }, [introFinished]);
 
 
   useEffect(() => {
