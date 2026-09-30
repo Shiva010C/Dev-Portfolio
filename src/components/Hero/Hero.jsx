@@ -342,7 +342,7 @@ useEffect(() => {
               ================================= */}
 
                             <img
-                                src="/profile.png"
+                                src="/profile.PNG"
                                 alt="Shiva Mandal"
                             />
 
