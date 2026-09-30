@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Contact.module.css";
 
@@ -6,7 +7,7 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: "⌘",
-    href: "https://github.com/",
+    href: "https://shiva010c.github.io/",
   },
   {
     name: "LinkedIn",
@@ -16,53 +17,77 @@ const socialLinks = [
   {
     name: "Email",
     icon: "✉",
-    href: "mailto:yourmail@example.com",
+    href: "shivamandal0030@gmail.com",
   },
 ];
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const formRef = useRef(null);
 
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.message) {
+    const form = formRef.current;
+
+    if (!form) return;
+
+    // Get form values
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    // Validation BEFORE transmission animation
+    if (!name || !email || !message) {
+      setError("PLEASE COMPLETE ALL TRANSMISSION FIELDS.");
       return;
     }
 
+    // Basic email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      setError("PLEASE ENTER A VALID EMAIL ADDRESS.");
+      return;
+    }
+
+    // Everything is valid
+    setError("");
     setSending(true);
 
-    // Demo transmission delay
-    setTimeout(() => {
-      setSending(false);
-      setSent(true);
-    }, 1600);
+    emailjs
+      .sendForm(
+        "service_mail04",
+        "template_9qaen5e",
+        form,
+        {
+          publicKey: "VS2GA49915xKAoK0K",
+        }
+      )
+      .then(() => {
+        setSending(false);
+        setSent(true);
+      })
+      .catch((error) => {
+        console.error("Transmission failed:", error);
+
+        setSending(false);
+        setError(
+          "TRANSMISSION FAILED. PLEASE TRY AGAIN."
+        );
+      });
   };
 
   const resetForm = () => {
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    if (formRef.current) {
+      formRef.current.reset();
+    }
 
     setSent(false);
+    setError("");
   };
 
   return (
@@ -186,6 +211,7 @@ function Contact() {
           <AnimatePresence mode="wait">
             {!sent ? (
               <motion.form
+                ref={formRef}
                 key="form"
                 className={styles.form}
                 onSubmit={handleSubmit}
@@ -204,10 +230,9 @@ function Contact() {
                       id="name"
                       type="text"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       placeholder="Your name..."
                       autoComplete="name"
+                      required
                     />
                   </div>
                 </div>
@@ -223,10 +248,9 @@ function Contact() {
                       id="email"
                       type="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       placeholder="you@example.com"
                       autoComplete="email"
+                      required
                     />
                   </div>
                 </div>
@@ -241,13 +265,23 @@ function Contact() {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       placeholder="Tell me about your project..."
                       rows="5"
+                      required
                     />
                   </div>
                 </div>
+
+                {/* Error Message */}
+                {error && (
+                  <motion.p
+                    className={styles.errorMessage}
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    ⚠ {error}
+                  </motion.p>
+                )}
 
                 {/* Send */}
                 <motion.button

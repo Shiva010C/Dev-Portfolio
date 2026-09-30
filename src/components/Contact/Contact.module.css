@@ -542,6 +542,19 @@
    SEND BUTTON
 ================================ */
 
+.errorMessage {
+  margin: -5px 0 15px;
+
+  font-family: monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+
+  color: #ff6577;
+
+  text-shadow:
+    0 0 10px rgba(255, 101, 119, 0.3);
+}
+
 .sendButton {
   position: relative;
 
