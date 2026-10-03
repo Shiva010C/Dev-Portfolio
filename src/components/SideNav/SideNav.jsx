@@ -3,21 +3,20 @@ import styles from "./SideNav.module.css";
 import { motion } from "framer-motion";
 
 const sections = [
-  "home",
-  // "play",
-  "skills",
-  "projects",
-  "contact",
+  "Home",
+  "Skills",
+  "Projects",
+  "Contact",
 ];
 
 export default function SideNav() {
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("Home");
 
   useEffect(() => {
     const updateActiveSection = () => {
       const viewportCenter = window.innerHeight / 2;
 
-      let currentSection = "home";
+      let currentSection = "Home";
       let closestDistance = Infinity;
 
       sections.forEach((id) => {

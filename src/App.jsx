@@ -9,40 +9,13 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import StarField from "./components/StarField/StarField";
+import MobileMenu from "./components/MobileMenu/MobileMenu";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
 
-const [introFinished, setIntroFinished] = useState(false);
-
-// useEffect(() => {
-//   if (introFinished) {
-//     document.documentElement.style.overflow = "";
-//     document.body.style.overflow = "";
-
-//     document.documentElement.style.touchAction = "";
-//     document.body.style.touchAction = "";
-
-//     return;
-//   }
-
-//   // Landing animation ke time scroll lock
-//   document.documentElement.style.overflow = "hidden";
-//   document.body.style.overflow = "hidden";
-
-//   document.documentElement.style.touchAction = "none";
-//   document.body.style.touchAction = "none";
-
-//   return () => {
-//     document.documentElement.style.overflow = "";
-//     document.body.style.overflow = "";
-
-//     document.documentElement.style.touchAction = "";
-//     document.body.style.touchAction = "";
-//   };
-// }, [introFinished]);
-
+  const [introFinished, setIntroFinished] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -84,6 +57,7 @@ const [introFinished, setIntroFinished] = useState(false);
     <div className="app-shell">
       <StarField density={0.00015} />
       <Navbar />
+      <MobileMenu/>
       <SideNav />
       <main>
         <Hero onIntroComplete={() => setIntroFinished(true)} />

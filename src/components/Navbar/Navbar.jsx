@@ -1,42 +1,144 @@
-import React from "react";
-import styles from "./Navbar.module.css";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import styles from "./Navbar.module.css";
 
 const navItems = [
-  ["Home", "home"],
-  ["Skills", "skills"],
-  ["Projects", "projects"],
-  ["Contact", "contact"],
+  ["01", "INTRO", "Home"],
+  ["02", "SKILLS", "Skills"],
+  ["03", "PROJECTS", "Projects"],
+  ["04", "CONTACT", "Contact"],
 ];
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState("Home");
+
+  useEffect(() => {
+    const sections = navItems
+      .map(([, , id]) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        threshold: [0.15, 0.3, 0.5, 0.7],
+        rootMargin: "-15% 0px -45% 0px",
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (id) => {
+    setActiveSection(id);
+  };
+
   return (
-    <motion.header className={styles.navbar}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.2, delay: 2.3 }}>
-      <motion.a href="#home" className={styles.logo} aria-label="Shiva Mandal home" initial={{ opacity: 0, x: -80 }}
+    <motion.header
+      className={styles.navbar}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.7,
+        delay: 2.3,
+        ease: "easeOut",
+      }}
+    >
+      {/* LEFT — IDENTITY */}
+      <motion.a
+        href="#Home"
+        className={styles.logo}
+        aria-label="Shiva Mandal Home"
+        initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 2.3 }}>
-        <span>S</span><span>M</span>
+        transition={{
+          duration: 0.7,
+          delay: 2.4,
+        }}
+      >
+        <span className={styles.logoMain}>
+          <span className={styles.logoLetter}>S</span><span className={styles.logoLetter}>M</span>
+        </span>
+
+        <span className={styles.logoCode}>
+          _01
+        </span>
       </motion.a>
 
-      <nav>
-        {navItems.map(([label, id], index) => (
-          <motion.a className={index === 0 ? styles.active : ""} href={`#${id}`} key={id}
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2 + 2.8 }}>
-            {label}
-          </motion.a>
-        ))}
+      {/* CENTER — NAVIGATION */}
+      <nav className={styles.nav}>
+        {navItems.map(([number, label, id], index) => {
+          const active = activeSection === id;
+
+          return (
+            <motion.a
+              key={id}
+              href={`#${id}`}
+              className={`${styles.navItem} ${
+                active ? styles.active : ""
+              }`}
+              onClick={() => handleNavClick(id)}
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 2.6 + index * 0.12,
+              }}
+            >
+              <span className={styles.number}>
+                {number}
+              </span>
+
+              <span className={styles.label}>
+                {label}
+              </span>
+
+              {active && (
+                <motion.span
+                  className={styles.activeLine}
+                  layoutId="navbarActiveLine"
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 30,
+                  }}
+                />
+              )}
+            </motion.a>
+          );
+        })}
       </nav>
 
-      {/* CHANGE HERE: Edit the top-right CTA label and destination. */}
-      <motion.a className={styles.talk} href="#contact" initial={{ opacity: 0, x: 80 }}
+      {/* RIGHT — RESUME */}
+      <motion.a
+        href="/resume.pdf"
+        download
+        className={styles.resume}
+        initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: navItems.length * 0.2 + 3.0 }}>
-        Let’s Talk <span>→</span>
+        transition={{
+          duration: 0.7,
+          delay: 3.1,
+        }}
+      >
+        <span>RESUME</span>
+        <b>↗</b>
       </motion.a>
     </motion.header>
   );

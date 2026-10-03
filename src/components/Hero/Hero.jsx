@@ -118,7 +118,7 @@ useEffect(() => {
     };
 
     return (
-        <section id="intro" className={styles.hero}>
+        <section id="Home" className={styles.hero}>
             {/* =================================
           ATMOSPHERE
       ================================= */}
@@ -342,7 +342,7 @@ useEffect(() => {
               ================================= */}
 
                             <img
-                                src="/profile.PNG"
+                                src="/profile.png"
                                 alt="Shiva Mandal"
                             />
 

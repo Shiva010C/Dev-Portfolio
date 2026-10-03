@@ -1354,7 +1354,7 @@ export default function Projects() {
 
     return (
         <section
-            id="projects"
+            id="Projects"
             className={
                 styles.projects
             }

@@ -7,17 +7,17 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: "⌘",
-    href: "https://shiva010c.github.io/",
+    href: "https://github.com/Shiva010C",
   },
   {
     name: "LinkedIn",
     icon: "in",
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/shiva01c/",
   },
   {
     name: "Email",
     icon: "✉",
-    href: "shivamandal0030@gmail.com",
+    href: "mailto:shivamandal0030@gmail.com",
   },
 ];
 
@@ -91,7 +91,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className={styles.contact}>
+    <section id="Contact" className={styles.contact}>
       {/* Background atmosphere */}
       <div className={styles.nebula} />
       <div className={styles.grid} />

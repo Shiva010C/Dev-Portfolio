@@ -1065,6 +1065,7 @@
   gap: 10px;
   padding-top: 25px;
   padding-bottom: 20px;
+  margin-top: 30px;
 }
 
   .intro {
@@ -1110,6 +1111,8 @@
 
   .actions {
     margin-top: 23px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .primaryButton,
@@ -1118,14 +1121,17 @@
 
     padding: 0 13px;
 
-    font-size: 0.55rem;
+    font-size: 0.8rem;
+  }
+
+  .secondaryButton {
+    padding: 0 33px;
   }
 
   .visual {
   grid-area: visual;
 
-  width: min(310px, 75vw);
-  margin-top: -5px;
+  width: min(370px, 78vw);
 }
 
   .hologram {
@@ -1199,28 +1205,28 @@
     padding-top: 15px;
   }
 
-  .intro h1 {
+  /* .intro h1 {
     font-size: 3.65rem;
-  }
+  } */
 
   .description {
     font-size: 0.7rem;
   }
 
   .visual {
-    width: 270px;
+    width: min(355px, 84vw);
   }
 
-  .actions {
+  /* .actions {
     gap: 7px;
-  }
+  } */
 
-  .primaryButton,
+  /* .primaryButton,
   .secondaryButton {
     padding: 0 10px;
 
     font-size: 0.5rem;
-  }
+  } */
 
   .dataPanel {
     transform: scale(0.78);

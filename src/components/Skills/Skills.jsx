@@ -210,7 +210,7 @@ function SkillCard({ category, index }) {
 export default function Skills() {
     return (
         <section
-            id="skills"
+            id="Skills"
             className={styles.skillsSection}
         >
             {/* Background glow */}
